@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ContaCorrente {
@@ -23,15 +22,15 @@ public class ContaCorrente {
 
         // Start of the aplication showing the client's details
 
-        System.out.println(String.format("""
+        System.out.printf("""
                 ******************************************
-                
+                               \s
                 Client's name: %s
                 Account Type: %s
                 Account's Balance: $%.2f
-                
+                               \s
                 ******************************************
-                """,name,accountType,accountBalance));
+                %n""",name,accountType,accountBalance);
 
         // Loop with the operations
         while (option != 4) {
@@ -48,15 +47,15 @@ public class ContaCorrente {
             case 2:
                 System.out.print("""
                     **** Transfer money ****
-                    
-                    Type the amount you wish to transfer: """);
+                   \s
+                    Type the amount you wish to transfer:\s""");
                 double transferAmount = scan.nextDouble();
                 // Checkin the balance
                 if (transferAmount <= accountBalance){
                     accountBalance -= transferAmount;
                     System.out.println("Transfer operation completed successfully");
                     System.out.println("Your new balance is: $" + accountBalance);
-                    System.out.println("");
+                    System.out.println();
                 } else {
                     System.out.println("Insufficient balance");
                     System.out.println("Your current balance is $" + accountBalance);
@@ -66,8 +65,8 @@ public class ContaCorrente {
             case 3:
                 System.out.print("""
                     **** Receive money ****
-                    
-                    Type the amount you wish to receive: """);
+                   \s
+                    Type the amount you wish to receive:\s""");
                 double receiveAmount = scan.nextDouble();
                 accountBalance += receiveAmount;
                 System.out.println("Your new ballance is $" + accountBalance);
